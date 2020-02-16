@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>visualizer config.json 配置说明 &mdash; adas_pro 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A.B" href="../api.html" />
+    <link rel="prev" title="self_calibration.json 配置说明" href="self_calibration_json.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> adas_pro
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../alarm.html">Alarm System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alarm_simulator_config_json.html">alarm_simulator_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration_json.html">calibration.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_yml.html">config.yml 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_config_json.html">evaluation config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadtest_config.html">roadtest config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk_config_json.html">sdk_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_calibration_json.html">self_calibration.json 配置说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">visualizer config.json 配置说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#detectionvisualizerproperty">1. DetectionVisualizerProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#drawproperty">2. DrawProperty</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#drawpropertyonimageplane">2.1 DrawPropertyOnImagePlane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#drawpropertyonworldplane">2.2 DrawPropertyOnWorldPlane</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inputdetectionimageioproperty">3. InputDetectionImageIOProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputdetectionimageonimageplaneioproperty">4. OutputDetectionImageOnImagePlaneIOProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputdetectionimageonworldplaneioproperty">5. OutputDetectionImageOnWorldPlaneIOProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#others">6. Others</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">A.B</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">adas_pro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>visualizer config.json 配置说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/config_docs/visualizer_config.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="visualizer-config-json">
+<h1>visualizer config.json 配置说明<a class="headerlink" href="#visualizer-config-json" title="Permalink to this headline">¶</a></h1>
+<p>================================</p>
+<p>visualizer config.json为visualizer工具的配置文件，提供framework所需的sdk_config.json的文件路径、calibration.json文件路径、可视化绘图配置和I/O配置。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#detectionvisualizerproperty">1. DetectionVisualizerProperty</a></p></li>
+<li><p><a class="reference external" href="#drawproperty">2. DrawProperty</a></p>
+<ul>
+<li><p><a class="reference external" href="#drawpropertyonimageplane">2.1 DrawPropertyOnImagePlane</a></p></li>
+<li><p><a class="reference external" href="#drawpropertyonworldplane">2.2 DrawPropertyOnWorldPlane</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#inputdetectionimageioproperty">3. InputDetectionImageIOProperty</a></p></li>
+<li><p><a class="reference external" href="#outputdetectionimageonimageplaneioproperty">4. OutputDetectionImageOnImagePlaneIOProperty</a></p></li>
+<li><p><a class="reference external" href="#outputdetectionimageonworldplaneioproperty">5. OutputDetectionImageOnWorldPlaneIOProperty</a></p></li>
+<li><p><a class="reference external" href="#others">6. Others</a></p>
+<ul>
+<li><p><a class="reference internal" href="calibration_json.html"><span class="doc">CalibrationFile</span></a></p></li>
+<li><p><a class="reference internal" href="sdk_config_json.html"><span class="doc">sdk_config_path</span></a></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="detectionvisualizerproperty">
+<h2>1. DetectionVisualizerProperty<a class="headerlink" href="#detectionvisualizerproperty" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>key word</th>
+<th>expression</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is_output_draw_on_img_plane_enabled</td>
+<td>是否绘制像素坐标系下的输出</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_output_draw_on_world_plane_enabled</td>
+<td>是否绘制世界坐标系下的输出</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_output_detect_result_log_enabled</td>
+<td>是否保存detection检测结果到log</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>license_file</td>
+<td>license文件路径，保留项</td>
+<td>string</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="drawproperty">
+<h2>2. DrawProperty<a class="headerlink" href="#drawproperty" title="Permalink to this headline">¶</a></h2>
+<p>绘图相关配置</p>
+<div class="section" id="drawpropertyonimageplane">
+<h3>2.1 DrawPropertyOnImagePlane<a class="headerlink" href="#drawpropertyonimageplane" title="Permalink to this headline">¶</a></h3>
+<p>像素坐标系下功能开关配置</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>key word</th>
+<th>expression</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is_draw_lane_prob_map_enabled</td>
+<td>是否绘制车道线概率图</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_freespace_prob_map_enabled</td>
+<td>是否绘制freespace概率图</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_lane_category_prob_map_enabled</td>
+<td>是否绘制车道线分类概率图</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_points_for_fitting_enabled</td>
+<td>是否绘制车道线的拟合点</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_fitting_result_enabled</td>
+<td>是否绘制车道线的拟合结果</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_distance_to_lanes_enabled</td>
+<td>是否绘制距离车道线的距离</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_lane_category_enabled</td>
+<td>是否绘制车道线分类结果</td>
+<td>true/是，false/否</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="drawpropertyonworldplane">
+<h3>2.2 DrawPropertyOnWorldPlane<a class="headerlink" href="#drawpropertyonworldplane" title="Permalink to this headline">¶</a></h3>
+<p>世界坐标系下功能开关配置</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>key word</th>
+<th>expression</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is_draw_lane_prob_map_enabled</td>
+<td>是否绘制车道线概率图</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_freespace_prob_map_enabled</td>
+<td>是否绘制freespace概率图</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_lane_category_prob_map_enabled</td>
+<td>是否绘制车道线分类概率图</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_points_for_fitting_enabled</td>
+<td>是否绘制车道线的拟合点</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_fitting_result_enabled</td>
+<td>是否绘制车道线的拟合结果</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_distance_to_lanes_enabled</td>
+<td>是否绘制距离车道线的距离</td>
+<td>true/是，false/否</td>
+</tr>
+<tr>
+<td>is_draw_lane_category_enabled</td>
+<td>是否绘制车道线分类结果</td>
+<td>true/是，false/否</td>
+</tr>
+</tbody>
+</table><p><strong>Img2World2ShowTransformProperty</strong></p>
+<ul class="simple">
+<li><p>output_world_width</p></li>
+<li><p>output_world_height</p></li>
+<li><p>origin_x</p></li>
+<li><p>origin_y</p></li>
+<li><p>meter_per_pixel</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="inputdetectionimageioproperty">
+<h2>3. InputDetectionImageIOProperty<a class="headerlink" href="#inputdetectionimageioproperty" title="Permalink to this headline">¶</a></h2>
+<p>数据的输入配置</p>
+<p><strong>input type table 3-1</strong></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>type</th>
+<th>expression</th>
+<th>input data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STATIC_IMAGE</td>
+<td>处理单张图片</td>
+<td>img_file_path</td>
+</tr>
+<tr>
+<td>STATIC_IMAGE_SET</td>
+<td>处理图片集</td>
+<td>imgs_file_path_pattern</td>
+</tr>
+<tr>
+<td>STATIC_VIDEO</td>
+<td>处理视频文件</td>
+<td>video_path</td>
+</tr>
+<tr>
+<td>STATIC_IMAGE_JSON</td>
+<td>包含有数据集路径的json文件</td>
+<td>imgs_json_file_path</td>
+</tr>
+</tbody>
+</table><p><strong>key words table 3-2</strong></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>key word</th>
+<th>expression</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>input的数据类型</td>
+<td>string，参考 <strong>table 3-1</strong></td>
+</tr>
+<tr>
+<td>video_path</td>
+<td>视频文件路径</td>
+<td>string，type为“STATIC_VIDEO”有效</td>
+</tr>
+<tr>
+<td>imgs_file_path_pattern</td>
+<td>图片集文件pattern</td>
+<td>string，type为“STATIC_IMAGE_SET”有效</td>
+</tr>
+<tr>
+<td>imgs_json_file_path</td>
+<td>json数据集文件路径</td>
+<td>string，type为“STATIC_IMAGE_JSON”有效</td>
+</tr>
+<tr>
+<td>img_file_path</td>
+<td>单张图片路径</td>
+<td>string，type为“STATIC_IMAGE”有效</td>
+</tr>
+<tr>
+<td>img_show_property</td>
+<td>保留项</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="outputdetectionimageonimageplaneioproperty">
+<h2>4. OutputDetectionImageOnImagePlaneIOProperty<a class="headerlink" href="#outputdetectionimageonimageplaneioproperty" title="Permalink to this headline">¶</a></h2>
+<p>像素坐标系下result的输出配置</p>
+<p><strong>output type table 4-1</strong></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>type</th>
+<th>expression</th>
+<th>output data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STATIC_IMAGE</td>
+<td>输出单张图片</td>
+<td>img_file_path</td>
+</tr>
+<tr>
+<td>STATIC_IMAGE_SET</td>
+<td>输出图片集</td>
+<td>imgs_file_path_pattern</td>
+</tr>
+<tr>
+<td>STATIC_VIDEO</td>
+<td>输出视频文件</td>
+<td>video_path</td>
+</tr>
+<tr>
+<td>STATIC_IMAGE_JSON</td>
+<td>保存结果图片到目录路径下</td>
+<td>imgs_json_save_dir</td>
+</tr>
+</tbody>
+</table><p><strong>key words table 4-2</strong></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>key word</th>
+<th>expression</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>output的数据类型</td>
+<td>string，参考 <strong>table 4-1</strong></td>
+</tr>
+<tr>
+<td>video_path</td>
+<td>输出视频文件路径</td>
+<td>string，type为“STATIC_VIDEO”有效</td>
+</tr>
+<tr>
+<td>imgs_file_path_pattern</td>
+<td>输出图片集文件pattern</td>
+<td>string，type为“STATIC_IMAGE_SET”有效</td>
+</tr>
+<tr>
+<td>imgs_json_save_dir</td>
+<td>输出结果图片到目录下</td>
+<td>string，type为“STATIC_IMAGE_JSON”有效</td>
+</tr>
+<tr>
+<td>img_file_path</td>
+<td>单张图片路径</td>
+<td>string，type为“STATIC_IMAGE”有效</td>
+</tr>
+<tr>
+<td>img_show_property</td>
+<td>保留项</td>
+<td></td>
+</tr>
+<tr>
+<td>video_writer_property</td>
+<td>输出视频时的配置</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="outputdetectionimageonworldplaneioproperty">
+<h2>5. OutputDetectionImageOnWorldPlaneIOProperty<a class="headerlink" href="#outputdetectionimageonworldplaneioproperty" title="Permalink to this headline">¶</a></h2>
+<p>世界坐标系下result的输出配置，参考 <a class="reference external" href="#outputdetectionimageonimageplaneioproperty">OutputDetectionImageOnImagePlaneIOProperty</a></p>
+</div>
+<div class="section" id="others">
+<h2>6. Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CalibrationFile ： <a class="reference internal" href="calibration_json.html"><span class="doc">calibration.json</span></a> 文件路径，用于转换世界坐标系和像素坐标系</p></li>
+<li><p>sdk_config_path ： <a class="reference internal" href="sdk_config_json.html"><span class="doc">sdk_configl.json</span></a> 文件路径，用于配置ADAS SDK</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api.html" class="btn btn-neutral float-right" title="A.B" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="self_calibration_json.html" class="btn btn-neutral float-left" title="self_calibration.json 配置说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, adas group
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

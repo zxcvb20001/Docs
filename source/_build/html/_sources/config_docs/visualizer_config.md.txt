@@ -1,0 +1,134 @@
+# visualizer config.json 配置说明
+================================
+
+visualizer config.json为visualizer工具的配置文件，提供framework所需的sdk_config.json的文件路径、calibration.json文件路径、可视化绘图配置和I/O配置。
+
+- [1. DetectionVisualizerProperty](#1.-detectionvisualizerproperty)
+- [2. DrawProperty](#2.-drawproperty)
+    - [2.1 DrawPropertyOnImagePlane](#2.1-drawpropertyonimageplane)
+    - [2.2 DrawPropertyOnWorldPlane](#2.2-drawpropertyonworldplane)
+- [3. InputDetectionImageIOProperty](#3.-inputdetectionimageioproperty)
+- [4. OutputDetectionImageOnImagePlaneIOProperty](#4.-outputdetectionimageonimageplaneioproperty)
+- [5. OutputDetectionImageOnWorldPlaneIOProperty](#5.-outputdetectionimageonworldplaneioproperty)
+- [6. Others](#6.-others)
+    - [CalibrationFile](./calibration_json.md)
+    - [sdk_config_path](./sdk_config_json.md)
+
+
+-----------------
+
+
+## 1. DetectionVisualizerProperty
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_output_draw_on_img_plane_enabled   | 是否绘制像素坐标系下的输出     | true/是，false/否 |
+| is_output_draw_on_world_plane_enabled | 是否绘制世界坐标系下的输出     | true/是，false/否 |
+| is_output_detect_result_log_enabled   | 是否保存detection检测结果到log | true/是，false/否 |
+| license_file                          | license文件路径，保留项        | string            |
+
+## 2. DrawProperty
+绘图相关配置
+
+### 2.1 DrawPropertyOnImagePlane
+像素坐标系下功能开关配置
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_draw_lane_prob_map_enabled          | 是否绘制车道线概率图     | true/是，false/否 |
+| is_draw_freespace_prob_map_enabled     | 是否绘制freespace概率图  | true/是，false/否 |
+| is_draw_lane_category_prob_map_enabled | 是否绘制车道线分类概率图 | true/是，false/否 |
+| is_draw_points_for_fitting_enabled     | 是否绘制车道线的拟合点   | true/是，false/否 |
+| is_draw_fitting_result_enabled         | 是否绘制车道线的拟合结果 | true/是，false/否 |
+| is_draw_distance_to_lanes_enabled      | 是否绘制距离车道线的距离 | true/是，false/否 |
+| is_draw_lane_category_enabled          | 是否绘制车道线分类结果   | true/是，false/否 |
+
+### 2.2 DrawPropertyOnWorldPlane
+世界坐标系下功能开关配置
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_draw_lane_prob_map_enabled          | 是否绘制车道线概率图     | true/是，false/否 |
+| is_draw_freespace_prob_map_enabled     | 是否绘制freespace概率图  | true/是，false/否 |
+| is_draw_lane_category_prob_map_enabled | 是否绘制车道线分类概率图 | true/是，false/否 |
+| is_draw_points_for_fitting_enabled     | 是否绘制车道线的拟合点   | true/是，false/否 |
+| is_draw_fitting_result_enabled         | 是否绘制车道线的拟合结果 | true/是，false/否 |
+| is_draw_distance_to_lanes_enabled      | 是否绘制距离车道线的距离 | true/是，false/否 |
+| is_draw_lane_category_enabled          | 是否绘制车道线分类结果   | true/是，false/否 |
+
+**Img2World2ShowTransformProperty**
+
+- output_world_width
+- output_world_height
+- origin_x
+- origin_y
+- meter_per_pixel
+
+
+## 3. InputDetectionImageIOProperty
+数据的输入配置
+
+**input type table 3-1**
+
+| type | expression | input data |
+| ---- | ---------- | ---------- |
+| STATIC_IMAGE      | 处理单张图片 | img_file_path |
+| STATIC_IMAGE_SET  | 处理图片集   | imgs_file_path_pattern |
+| STATIC_VIDEO      | 处理视频文件 | video_path |
+| STATIC_IMAGE_JSON | 包含有数据集路径的json文件 | imgs_json_file_path |
+
+**key words table 3-2**
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| type                   | input的数据类型    | string，参考 **table 3-1** |
+| video_path             | 视频文件路径       | string，type为“STATIC_VIDEO”有效 |
+| imgs_file_path_pattern | 图片集文件pattern  | string，type为“STATIC_IMAGE_SET”有效 |
+| imgs_json_file_path    | json数据集文件路径 | string，type为“STATIC_IMAGE_JSON”有效 |
+| img_file_path          | 单张图片路径       | string，type为“STATIC_IMAGE”有效 |
+| img_show_property      | 保留项             |  |
+
+
+## 4. OutputDetectionImageOnImagePlaneIOProperty
+像素坐标系下result的输出配置
+
+**output type table 4-1**
+
+| type | expression | output data |
+| ---- | ---------- | ----------- |
+| STATIC_IMAGE      | 输出单张图片             | img_file_path |
+| STATIC_IMAGE_SET  | 输出图片集               | imgs_file_path_pattern |
+| STATIC_VIDEO      | 输出视频文件             | video_path |
+| STATIC_IMAGE_JSON | 保存结果图片到目录路径下 | imgs_json_save_dir |
+
+**key words table 4-2**
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| type                   | output的数据类型      | string，参考 **table 4-1** |
+| video_path             | 输出视频文件路径      | string，type为“STATIC_VIDEO”有效 |
+| imgs_file_path_pattern | 输出图片集文件pattern | string，type为“STATIC_IMAGE_SET”有效 |
+| imgs_json_save_dir     | 输出结果图片到目录下  | string，type为“STATIC_IMAGE_JSON”有效 |
+| img_file_path          | 单张图片路径          | string，type为“STATIC_IMAGE”有效 |
+| img_show_property      | 保留项                |  |
+| video_writer_property  | 输出视频时的配置      |  |
+
+
+## 5. OutputDetectionImageOnWorldPlaneIOProperty
+世界坐标系下result的输出配置，参考 [OutputDetectionImageOnImagePlaneIOProperty](#4.-outputdetectionimageonimageplaneioproperty)
+
+
+## 6. Others
+
+- CalibrationFile ： [calibration.json](./calibration_json.md) 文件路径，用于转换世界坐标系和像素坐标系
+
+- sdk_config_path ： [sdk_configl.json](./sdk_config_json.md) 文件路径，用于配置ADAS SDK
+
+
+
+
+
+
+
+
+

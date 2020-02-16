@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sdk_config.json 配置说明 &mdash; adas_pro  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="self_calibration.json 配置说明" href="self_calibration_json.html" />
+    <link rel="prev" title="roadtest config.json 配置说明" href="roadtest_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> adas_pro
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../alarm.html">Alarm System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alarm_simulator_config_json.html">alarm_simulator_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration_json.html">calibration.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_yml.html">config.yml 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_config_json.html">evaluation config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadtest_config.html">roadtest config.json 配置说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sdk_config.json 配置说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adas-detector-property">1. adas_detector_property</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fpga-predictor">1.1 FPGA_predictor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gpu-predictor">1.2 GPU_predictor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bgr-means">1.3 bgr_means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-limit">1.4 input_limit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-option">1.5 function_option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-processor-property">1.6 post_processor_property</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alarm-property">2. alarm_property</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lane-alarm-property">2.1 lane_alarm_property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-alarm-property">2.2 object_alarm_property</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#others">3. others</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="self_calibration_json.html">self_calibration.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizer_config.html">visualizer config.json 配置说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">A.B</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">adas_pro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>sdk_config.json 配置说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/config_docs/sdk_config_json.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sdk-config-json">
+<h1>sdk_config.json 配置说明<a class="headerlink" href="#sdk-config-json" title="Permalink to this headline">¶</a></h1>
+<p>================================</p>
+<p>sdk_config.json为ADAS SDK提供标定文件路劲配置、模型相关配置、功能开关配置、后处理参数配置以及告警相关参数配置。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#1.-adas_detector_property">1. adas_detector_property</a></p>
+<ul>
+<li><p><a class="reference external" href="#1.1-fpga_predictor">1.1 FPGA_predictor</a></p></li>
+<li><p><a class="reference external" href="#1.2-gpu_predictor">1.2 GPU_predictor</a></p></li>
+<li><p><a class="reference external" href="#1.3-bgr_means">1.3 bgr_means</a></p></li>
+<li><p><a class="reference external" href="#1.4-input_limit">1.4 input_limit</a></p></li>
+<li><p><a class="reference external" href="#1.5-function_option">1.5 function_option</a></p></li>
+<li><p><a class="reference external" href="#1.6-post_processor_property">1.6 post_processor_property</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#2.-alarm_property">2. alarm_property</a></p>
+<ul>
+<li><p><a class="reference external" href="#2.1-lane_alarm_property">2.1 lane_alarm_property</a></p></li>
+<li><p><a class="reference external" href="#2.2-object_alarm_property">2.2 object_alarm_property</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#3.-others">3. others</a></p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="adas-detector-property">
+<h2>1. adas_detector_property<a class="headerlink" href="#adas-detector-property" title="Permalink to this headline">¶</a></h2>
+<p>adas_detector_property配置对应平台（FPGA/GPU）下的深度学习模型对应的<em>文件路径</em>、<em>input_blob名称</em>、<em>output_blob名称以及设备号</em>。</p>
+<div class="section" id="fpga-predictor">
+<h3>1.1 FPGA_predictor<a class="headerlink" href="#fpga-predictor" title="Permalink to this headline">¶</a></h3>
+<p>FPGA平台对应的模型配置</p>
+<p><strong>1.1.1 combined_fpga_predictor_property</strong></p>
+<p>定点融合模型predictor配置，该模型执行在FPGA上，通过FPGA加速inference过程。</p>
+<p>| key word | expression |
+| ——– | ———- |
+| <em>net_file</em>          | 融合模型的网络配置文件路径，对应prototxt |
+| <em>model_file</em>        | 融合模型的权值文件路径，对应caffemodel   |
+| <em>input_blob_names</em>  | 模型input_blob名称列表                   |
+| <em>output_blob_names</em> | 模型output_blob名称列表                  |
+| <em>gpu_device</em>        | 执行该模型inference的设备号              |</p>
+<p><strong>1.1.2 fcw_fpga_additional_predictor_property</strong></p>
+<p>取出定点融合模型FCW对应的output_blobs结果作为输入，即“combined_fpga_predictor_property”中的output_blob_names里的FCW相关层，该部分执行在arm-CPU上，输出机动车、非机动车和行人检测结果。</p>
+<p>| key word | expression |
+| ——– | ———- |
+| <em>net_file</em>          | FCW模型的网络配置文件路径，对应prototxt |
+| <em>model_file</em>        | FCW模型的权值文件路径，对应caffemodel   |
+| <em>input_blob_names</em>  | 模型input_blob名称列表                  |
+| <em>output_blob_names</em> | 模型output_blob名称列表                 |
+| <em>gpu_device</em>        | 执行该模型inference的设备号             |</p>
+<p><strong>1.1.3 tlr_fpga_additional_predictor_property</strong></p>
+<p>取出定点融合模型TLR对应的output_blobs结果作为输入，即“combined_fpga_predictor_property”中的output_blob_names里的FCW相关层，该部分执行在arm-CPU上，输出TrafficLight交通信号灯检测结果。</p>
+<p>| key word | expression |
+| ——– | ———- |
+| <em>net_file</em>          | TLR模型的网络配置文件路径，对应prototxt |
+| <em>model_file</em>        | TLR模型的权值文件路径，对应caffemodel   |
+| <em>input_blob_names</em>  | 模型input_blob名称列表                  |
+| <em>output_blob_names</em> | 模型output_blob名称列表                 |
+| <em>gpu_device</em>        | 执行该模型inference的设备号             |</p>
+<p><strong>1.1.4 tsr_fpga_additional_predictor_property</strong></p>
+<p>取出定点融合模型TSR对应的output_blobs结果作为输入，即“combined_fpga_predictor_property”中的output_blob_names里的FCW相关层，该部分执行在arm-CPU上，输出TrafficSign交通标识牌和交通标识标志检测结果。</p>
+<p>| key word | expression |
+| ——– | ———- |
+| <em>net_file</em>          | TSR模型的网络配置文件路径，对应prototxt |
+| <em>model_file</em>        | TSR模型的权值文件路径，对应caffemodel   |
+| <em>input_blob_names</em>  | 模型input_blob名称列表                  |
+| <em>output_blob_names</em> | 模型output_blob名称列表                 |
+| <em>gpu_device</em>        | 执行该模型inference的设备号             |</p>
+</div>
+<div class="section" id="gpu-predictor">
+<h3>1.2 GPU_predictor<a class="headerlink" href="#gpu-predictor" title="Permalink to this headline">¶</a></h3>
+<p>GPU平台对应的模型相关配置，目前浮点模型仅支持到fuse_v4.5版本</p>
+</div>
+<div class="section" id="bgr-means">
+<h3>1.3 bgr_means<a class="headerlink" href="#bgr-means" title="Permalink to this headline">¶</a></h3>
+<p>待补充</p>
+</div>
+<div class="section" id="input-limit">
+<h3>1.4 input_limit<a class="headerlink" href="#input-limit" title="Permalink to this headline">¶</a></h3>
+<p>模型输出限制，将图片resize到该尺寸后再进行inference</p>
+</div>
+<div class="section" id="function-option">
+<h3>1.5 function_option<a class="headerlink" href="#function-option" title="Permalink to this headline">¶</a></h3>
+<p>模型功能开关选项</p>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| <em>is_lka_detection_enabled</em>           | 模型车道线检测开关    | true/开，false/关 |
+| <em>is_freespace_detection_enabled</em>     | 模型freespace检测开关 | true/开，false/关 |
+| <em>is_lane_category_detection_enabled</em> | 模型车道线分类开关    | true/开，false/关 |
+| <em>is_fcw_detection_enabled</em>           | 模型FCW目标检测开关   | true/开，false/关 |
+| <em>is_tlr_detection_enabled</em>           | 模型TLR目标检测开关   | true/开，false/关 |
+| <em>is_tsr_detection_enabled</em>           | 模型TSR目标检测开关   | true/开，false/关 |</p>
+</div>
+<div class="section" id="post-processor-property">
+<h3>1.6 post_processor_property<a class="headerlink" href="#post-processor-property" title="Permalink to this headline">¶</a></h3>
+<p>ADAS SDK后处理相关配置项</p>
+<p><strong>1.6.1 lane_post_process_property</strong>
+车道线后处理配置</p>
+<ul class="simple">
+<li><p>detector_type：detector类型，可选项有<code class="docutils literal notranslate"><span class="pre">LANES_AND_STOPLINE_DETECTOR</span></code>和<code class="docutils literal notranslate"><span class="pre">GUIDELINES_DETECTOR</span></code></p></li>
+<li><p>lanes_selector_type：selector类型，可选项有<code class="docutils literal notranslate"><span class="pre">GIANT_COMPONENT_SELECT</span></code>和<code class="docutils literal notranslate"><span class="pre">RANSAC_SELECT</span></code></p></li>
+<li><p>lanes_fitter_type：车道线拟合方式</p></li>
+</ul>
+<p>| key word | expression |
+| ——– | ———- |
+| <em>LINE_FIT</em>            | 线性拟合     |
+| <em>QUADRATIC_CURVE_FIT</em> | 二阶曲线拟合 |
+| <em>CUBIC_CURVE_FIT</em>     | 三阶曲线拟合 |
+| <em>ITERATIVE_QUADRATIC_CURVE_FIT</em>  | 待补充 |
+| <em>HERMITE_CUBIC_SPLINE_CURVE_FIT</em> | 待补充 |</p>
+<ul class="simple">
+<li><p>horizon_ratio</p></li>
+<li><p>wheel_base</p></li>
+<li><p>half_road_width</p></li>
+<li><p>front_wheel_center_x</p></li>
+<li><p>front_wheel_center_y</p></li>
+<li><p>lanes_prob_threshold：四条车道线概率阈值</p></li>
+<li><p>lanes_sum_threshold</p></li>
+<li><p>lanes_adaptive_CCA_thresholds</p></li>
+<li><p>is_apply_interframe_filter_enabled：是否使用帧间过滤，true/false</p></li>
+<li><p>is_apply_parallel_constraint_enabled：是否使用平行约束，true/false</p></li>
+<li><p>is_skip_frame_enabled：是否跳帧处理，true/false</p></li>
+<li><p>skip_frame_num：跳帧数目</p></li>
+<li><p>skip_quadratic_lane_A_thresh</p></li>
+<li><p>max_y_distance：y方向最远检测距离</p></li>
+<li><p>lane_sample_interval</p></li>
+<li><p>crop_width：如果模型采用crop裁剪，crop_width表示与模型对应的水平方向裁剪大小，否则应为0</p></li>
+<li><p>crop_height：如果模型采用crop裁剪，crop_height表示与模型对应的垂直方向裁剪大小，否则应为0</p></li>
+</ul>
+<p><strong>1.6.2 object_post_process_property</strong>
+目标检测后处理配置</p>
+<ul class="simple">
+<li><p>is_object_use_freespace_fusion：是否使用freespace结果进行过滤，true/false</p></li>
+<li><p>vehicle_bbox_score_threshold：机动车bbox检测阈值，默认0.9，取值[0.0, 1.0]</p></li>
+<li><p>cyclist_bbox_score_threshold：非机动车bbox检测阈值，默认0.9，取值[0.0, 1.0]</p></li>
+<li><p>pedestrian_bbox_score_threshold：行人bbox检测阈值，默认0.9，取值[0.0, 1.0]</p></li>
+<li><p>traffic_light_bbox_score_threshold：交通信号灯bbox检测阈值，默认0.9，取值[0.0, 1.0]</p></li>
+<li><p>traffic_sign_bbox_score_threshold：交通标识bbox检测阈值，，默认0.9，取值[0.0, 1.0]</p></li>
+<li><p>nms_property：nms相关配置</p></li>
+<li><p>object_tracker_property：目标跟踪相关配置</p>
+<ul>
+<li><p>block_num</p></li>
+<li><p>block_num_distance</p></li>
+<li><p>velocity_type</p></li>
+</ul>
+</li>
+<li><p>crop_width：如果模型采用crop裁剪，crop_width表示与模型对应的水平方向裁剪大小，否则应为0</p></li>
+<li><p>crop_height：如果模型采用crop裁剪，crop_height表示与模型对应的垂直方向裁剪大小，否则应为0</p></li>
+</ul>
+<p><strong>1.6.3 freespace_post_process_property</strong>
+freespace检测后处理配置</p>
+<ul class="simple">
+<li><p>world_coordinate_sample_interval：世界坐标系下采样差值系数</p></li>
+<li><p>prob_map_threshold：概率图检测阈值</p></li>
+<li><p>left_max_distance：左边最大距离</p></li>
+<li><p>right_max_distance：右边最大距离</p></li>
+<li><p>farthest_distance：最远检测距离</p></li>
+<li><p>crop_width：如果模型采用crop裁剪，crop_width表示与模型对应的水平方向裁剪大小，否则应为0</p></li>
+<li><p>crop_height：如果模型采用crop裁剪，crop_height表示与模型对应的垂直方向裁剪大小，否则应为0</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="alarm-property">
+<h2>2. alarm_property<a class="headerlink" href="#alarm-property" title="Permalink to this headline">¶</a></h2>
+<p>alarm_property配置产品告警相关参数，包括LDW、FCW、PCW、HMW、UFCW对应的开关及约束参数</p>
+<div class="section" id="lane-alarm-property">
+<h3>2.1 lane_alarm_property<a class="headerlink" href="#lane-alarm-property" title="Permalink to this headline">¶</a></h3>
+<p>LDW告警相关配置</p>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| <em>is_lane_alarm_enabled</em>                | 是否使用LDW告警功能                | true/开，false/关 |
+| <em>is_alarm_once_every_depature_enabled</em> | 是否每次压线仅发1次告警            | true/开，false/关 |
+| <em>min_distance_thres</em>                   |  | float |
+| <em>farthest_warning_distance</em>            |  | float |
+| <em>shortest_warning_lane_length</em>         |  | float |
+| <em>alarm_interval</em>                       |  | float |
+| <em>alarm_depature_speed</em>                 |  | float |
+| <em>alarm_speed</em>                          | 告警车速限制，低于该车速不触发告警 | float |</p>
+</div>
+<div class="section" id="object-alarm-property">
+<h3>2.2 object_alarm_property<a class="headerlink" href="#object-alarm-property" title="Permalink to this headline">¶</a></h3>
+<p>目标检测相关功能告警配置，包括FCW、PCW、HMW和UFCW</p>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| <em>is_object_alarm_enabled</em> | 是否使用目标检测告警功能 | true/开，false/关 |
+| <em>is_FCW_alarm_enabled</em>    | 是否使用FCW告警功能      | true/开，false/关 |
+| <em>is_HMW_alarm_enabled</em>    | 是否使用PCW告警功能      | true/开，false/关 |
+| <em>is_PCW_alarm_enabled</em>    | 是否使用HMW告警功能      | true/开，false/关 |
+| <em>is_UFCW_alarm_enabled</em>   | 是否使用UFCW告警功能     | true/开，false/关 |</p>
+<p><strong>2.2.1 object_alarm_shared_property</strong>
+目标检测各功能公共配置项</p>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| <em>object_alarming_distance_x_min</em>                 | 目标x方向最小值             | float        |
+| <em>object_alarming_distance_x_max</em>                 | 目标x方向最大值             | float        |
+| <em>lane_filtering_distance_y_max</em>                  | 车道线过滤后目标y方向最大值 | float        |
+| <em>lane_filtering_distance_y_min</em>                  | 车道线过滤后目标y方向最小值 | flaot        |
+| <em>object_default_lane_x_min</em>                      |                             | flaot        |
+| <em>object_default_lane_x_max</em>                      |                             | flaot        |
+| <em>object_if_use_width_filter</em>                     | 是否使用目标宽度过滤器      | true/开，false/关 |
+| <em>object_time_response</em>                           |                             | float        |
+| <em>object_acceleration_request</em>                    | 目标加速度要求              | float        |
+| <em>object_acceleration_relative_threshold</em>         | 目标相对加速度阈值          | float        |
+| <em>object_lane_filter_sectional_distances</em>         |                             | array[float] |
+| <em>object_lane_filter_sectional_width_fractions</em>   |                             | array[float] |
+| <em>object_ego_car_acceleration_suppress_threshold</em> |                             | float        |
+| <em>object_ego_car_speed_table_num</em>                 |                             | int          |</p>
+<p><strong>2.2.2 object_fcw_common_property</strong>
+FCW的特定配置项</p>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| <em>active_speed_max</em>                 | FCW工作的最大车速，超过该车速FCW停止工作    | float |
+| <em>active_speed_min</em>                 | FCW工作的最小车速，低于该车速FCW停止工作    | float |
+| <em>warning_time</em>                     | FCW告警时间，预测碰撞时间小于该值时发出告警 | float |
+| <em>object_alarm_block_num_threshold</em> |  | int |
+| <em>warning_time_stabilize_num</em>       |  | int |
+| <em>alarming_time</em>                    | FCW语音告警时间，预测碰撞时间小于该值时发出语音告警 | float |</p>
+<p><strong>2.2.3 object_pcw_common_property</strong>
+PCW的特定配置项，参考 <em>object_fcw_common_property</em></p>
+<p><strong>2.2.4 object_hmw_common_property</strong>
+HMW的特定配置项，参考 <em>object_fcw_common_property</em></p>
+<p><strong>2.2.5 object_ufcw_common_property</strong>
+UFCW的特定配置项，参考 <em>object_fcw_common_property</em></p>
+</div>
+</div>
+<div class="section" id="others">
+<h2>3. others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>detect_calibration_input_file</p>
+<ul>
+<li><p>[camera.bin] (./camera_bin)文件路径，为sdk生成<a class="reference internal" href="calibration_json.html"><span class="doc">calibration.json</span></a>提供输入，由client客户端生成，传递到host</p></li>
+<li><p>不可为空</p></li>
+</ul>
+</li>
+<li><p>detect_calibration_file</p>
+<ul>
+<li><p><a class="reference internal" href="calibration_json.html"><span class="doc">calibration.json</span></a>文件路径，为sdk提供标定信息</p></li>
+<li><p>不可为空</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="self_calibration_json.html" class="btn btn-neutral float-right" title="self_calibration.json 配置说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="roadtest_config.html" class="btn btn-neutral float-left" title="roadtest config.json 配置说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, adas group
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

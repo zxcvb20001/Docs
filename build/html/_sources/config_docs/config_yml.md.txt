@@ -1,0 +1,93 @@
+# config.yml 配置说明
+================================
+
+config.yml为提供给用户使用的配置文件，目前为adas-app运行时的输入配置文件，包括相机模组配置、adas-app的输入输出配置、can通信相关配置以及工作状态配置
+
+- [1. 相机模组配置](#id1)
+- [2. I/O输入输出配置](#i-o)
+    - [2.1 Input property](#input-property)
+    - [2.2 Output property](#output-property)
+- [3. Can配置](#can)
+    - [3.1 开关选项配置](#id2)
+    - [3.2 Can通信配置](#id3)
+
+
+-----------------
+
+
+**program_run_times** ：程序运行次数，每次重启程序会自增1，避免保存时同名文件覆盖
+
+**work_status** ：工作模式选择
+
+| work status | expression | enum value |
+| ----------- | ---------- | ---------- |
+| 1           | 获取config信息           | WORK_STATUS_GET_CONFIG_INFO   |
+| 2           | 标定模式                 | WORK_STATUS_CLAIBRATION       |
+| 3           | 自标定模式               | WORK_STATUS_SELF_CALIBRATION  |
+| 4           | 告警detection模式        | WORK_STATUS_DETECTION         |
+| 5           | 向client发送检测结果图片 | WORK_STATUS_SEND_RESULT_IMAGE |
+
+
+## 1. 相机模组配置
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_input_camera_stream | 是否从 **模组** 读取视频流 | 1/是，0/否    |
+| input_width            | 输入图像width              | int，默认1025 |
+| input_height           | 输入图像height             | int，默认577  |
+| input_fps              | 视频帧率，单位：帧/s       | int，默认25   |
+
+
+## 2. I/O输入输出配置
+
+
+### 2.1 Input property
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_input_video     | 是否从 **视频文件** 读取数据 | 1/是，0/否 |
+| input_video        | 输入视频文件路径             | string     |
+| is_input_image_set | 是否从 **图片集** 读取数据   | 1/是，0/否 |
+| input_image_set    | 输入图片集路径pattern        | string     |
+
+
+### 2.2 Output property
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_write_original_images_enabled   | 是否保存original images           | 1/是，0/否 |
+| times_to_save_one_img              | 跳帧保存的帧间隔                  | int        |
+| original_images_path               | 保存原始图片的路径pattern         | string     |
+| is_write_result_images_enabled     | 是否保存result images             | 1/是，0/否 |
+| result_images_path                 | 保存检测图片的路径pattern         | string     |
+| is_save_detection_result_enabled   | 是否保存检测结果的json文件        | 1/是，0/否 |
+| save_detection_result_to_json_path | 保存检测结果json文件的目录路径    | string     |
+| is_manual_write_images_enabled     | 是否手动开始保存图片              | 1/是，0/否 |
+| manual_write_images_num            | 手动保存模式下保存图片的数量      | int，最大不要超过200张 |
+| manual_write_images_path           | 手动保存模式下保存图片路径pattern | string     |
+
+
+## 3. Can配置
+### 3.1 开关选项配置
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| is_get_toyota_speed_command_can_output_enable | 是否通过can获取Toyota汽车速度并转发 | 1/是，0/否 |
+| is_detection_result_can_ouput_enable          | 是否通过can转发detection result     | 1/是，0/否 |
+| is_alarm_result_can_ouput_enable              | 是否通过can转发alarm result         | 1/是，0/否 |
+| is_voice_alarm_command_can_output_enable      | 是否通过can发送语音告警命令         | 1/是，0/否 |
+| is_speed_info_can_output_enable               | 是否通过can发送speed信息            | 1/是，0/否 |
+| is_frame_id_can_output_enable                 | 是否通过can发送frame的id号          | 1/是，0/否 |
+| is_can_disabled                               | 是否禁用can                         | 1/是，0/否 |
+
+
+### 3.2 Can通信配置
+
+| key word | expression | value |
+| -------- | ---------- | ----- |
+| can_interface      | can接口名称 | string，默认“can0”   |
+| can_interface_type | can接口类型 | string，默认“socket” |
+| can_protocol_type  | can协议类型 | string，默认“Toyota” |
+| can_filtered_ids   | can指令表   | array[string]        |
+
+

@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>config.yml 配置说明 &mdash; adas_pro  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="evaluation config.json 配置说明" href="evaluation_config_json.html" />
+    <link rel="prev" title="calibration.json 配置说明" href="calibration_json.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> adas_pro
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../alarm.html">Alarm System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alarm_simulator_config_json.html">alarm_simulator_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration_json.html">calibration.json 配置说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">config.yml 配置说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1. 相机模组配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-o">2. I/O输入输出配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-property">2.1 Input property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-property">2.2 Output property</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#can">3. Can配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1 开关选项配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2 Can通信配置</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_config_json.html">evaluation config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roadtest_config.html">roadtest config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdk_config_json.html">sdk_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_calibration_json.html">self_calibration.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizer_config.html">visualizer config.json 配置说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">A.B</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">adas_pro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>config.yml 配置说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/config_docs/config_yml.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="config-yml">
+<h1>config.yml 配置说明<a class="headerlink" href="#config-yml" title="Permalink to this headline">¶</a></h1>
+<p>================================</p>
+<p>config.yml为提供给用户使用的配置文件，目前为adas-app运行时的输入配置文件，包括相机模组配置、adas-app的输入输出配置、can通信相关配置以及工作状态配置</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#1.-%E7%9B%B8%E6%9C%BA%E6%A8%A1%E7%BB%84%E9%85%8D%E7%BD%AE">1. 相机模组配置</a></p></li>
+<li><p><a class="reference external" href="#2.-I/O%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%85%8D%E7%BD%AE">2. I/O输入输出配置</a></p>
+<ul>
+<li><p><a class="reference external" href="#2.1-input-property">2.1 Input property</a></p></li>
+<li><p><a class="reference external" href="#2.2-output-property">2.2 Output property</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#3.-Can%E9%85%8D%E7%BD%AE">3. Can配置</a></p>
+<ul>
+<li><p><a class="reference external" href="#3.1-%E5%BC%80%E5%85%B3%E9%80%89%E9%A1%B9%E9%85%8D%E7%BD%AE">3.1 开关选项配置</a></p></li>
+<li><p><a class="reference external" href="#3.2-Can%E9%80%9A%E4%BF%A1%E9%85%8D%E7%BD%AE">3.2 Can通信配置</a></p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>program_run_times</strong> ：程序运行次数，每次重启程序会自增1，避免保存时同名文件覆盖</p>
+<p><strong>work_status</strong> ：工作模式选择</p>
+<p>| work status | expression | enum value |
+| ———– | ———- | ———- |
+| 1           | 获取config信息           | WORK_STATUS_GET_CONFIG_INFO   |
+| 2           | 标定模式                 | WORK_STATUS_CLAIBRATION       |
+| 3           | 自标定模式               | WORK_STATUS_SELF_CALIBRATION  |
+| 4           | 告警detection模式        | WORK_STATUS_DETECTION         |
+| 5           | 向client发送检测结果图片 | WORK_STATUS_SEND_RESULT_IMAGE |</p>
+<div class="section" id="id1">
+<h2>1. 相机模组配置<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| is_input_camera_stream | 是否从 <strong>模组</strong> 读取视频流 | 1/是，0/否    |
+| input_width            | 输入图像width              | int，默认1025 |
+| input_height           | 输入图像height             | int，默认577  |
+| input_fps              | 视频帧率，单位：帧/s       | int，默认25   |</p>
+</div>
+<div class="section" id="i-o">
+<h2>2. I/O输入输出配置<a class="headerlink" href="#i-o" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-property">
+<h3>2.1 Input property<a class="headerlink" href="#input-property" title="Permalink to this headline">¶</a></h3>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| is_input_video     | 是否从 <strong>视频文件</strong> 读取数据 | 1/是，0/否 |
+| input_video        | 输入视频文件路径             | string     |
+| is_input_image_set | 是否从 <strong>图片集</strong> 读取数据   | 1/是，0/否 |
+| input_image_set    | 输入图片集路径pattern        | string     |</p>
+</div>
+<div class="section" id="output-property">
+<h3>2.2 Output property<a class="headerlink" href="#output-property" title="Permalink to this headline">¶</a></h3>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| is_write_original_images_enabled   | 是否保存original images           | 1/是，0/否 |
+| times_to_save_one_img              | 跳帧保存的帧间隔                  | int        |
+| original_images_path               | 保存原始图片的路径pattern         | string     |
+| is_write_result_images_enabled     | 是否保存result images             | 1/是，0/否 |
+| result_images_path                 | 保存检测图片的路径pattern         | string     |
+| is_save_detection_result_enabled   | 是否保存检测结果的json文件        | 1/是，0/否 |
+| save_detection_result_to_json_path | 保存检测结果json文件的目录路径    | string     |
+| is_manual_write_images_enabled     | 是否手动开始保存图片              | 1/是，0/否 |
+| manual_write_images_num            | 手动保存模式下保存图片的数量      | int，最大不要超过200张 |
+| manual_write_images_path           | 手动保存模式下保存图片路径pattern | string     |</p>
+</div>
+</div>
+<div class="section" id="can">
+<h2>3. Can配置<a class="headerlink" href="#can" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>3.1 开关选项配置<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| is_get_toyota_speed_command_can_output_enable | 是否通过can获取Toyota汽车速度并转发 | 1/是，0/否 |
+| is_detection_result_can_ouput_enable          | 是否通过can转发detection result     | 1/是，0/否 |
+| is_alarm_result_can_ouput_enable              | 是否通过can转发alarm result         | 1/是，0/否 |
+| is_voice_alarm_command_can_output_enable      | 是否通过can发送语音告警命令         | 1/是，0/否 |
+| is_speed_info_can_output_enable               | 是否通过can发送speed信息            | 1/是，0/否 |
+| is_frame_id_can_output_enable                 | 是否通过can发送frame的id号          | 1/是，0/否 |
+| is_can_disabled                               | 是否禁用can                         | 1/是，0/否 |</p>
+</div>
+<div class="section" id="id3">
+<h3>3.2 Can通信配置<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>| key word | expression | value |
+| ——– | ———- | —– |
+| can_interface      | can接口名称 | string，默认“can0”   |
+| can_interface_type | can接口类型 | string，默认“socket” |
+| can_protocol_type  | can协议类型 | string，默认“Toyota” |
+| can_filtered_ids   | can指令表   | array[string]        |</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="evaluation_config_json.html" class="btn btn-neutral float-right" title="evaluation config.json 配置说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="calibration_json.html" class="btn btn-neutral float-left" title="calibration.json 配置说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, adas group
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

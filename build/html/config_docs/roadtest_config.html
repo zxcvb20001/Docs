@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>roadtest config.json 配置说明 &mdash; adas_pro 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="sdk_config.json 配置说明" href="sdk_config_json.html" />
+    <link rel="prev" title="evaluation config.json 配置说明" href="evaluation_config_json.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> adas_pro
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted.html">Getting Started</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../alarm.html">Alarm System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alarm_simulator_config_json.html">alarm_simulator_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calibration_json.html">calibration.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_yml.html">config.yml 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation_config_json.html">evaluation config.json 配置说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">roadtest config.json 配置说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#corenodeproperty">1. CoreNodeProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alarmnodeproperty">2. AlarmNodeProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#previewnodeproperty">3. PreviewNodeProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#others">4. Others</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sdk_config_json.html">sdk_config.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self_calibration_json.html">self_calibration.json 配置说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualizer_config.html">visualizer config.json 配置说明</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">A.B</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">adas_pro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>roadtest config.json 配置说明</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/config_docs/roadtest_config.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="roadtest-config-json">
+<h1>roadtest config.json 配置说明<a class="headerlink" href="#roadtest-config-json" title="Permalink to this headline">¶</a></h1>
+<p>================================</p>
+<p>roadtest config.json为roadtest工具的配置文件，提供framework所需的sdk_config.json的文件路径、网络通信配置、语音告警配置和PC端可视化配置。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#corenodeproperty">1. CoreNodeProperty</a></p></li>
+<li><p><a class="reference external" href="#alarmnodeproperty">2. AlarmNodeProperty</a></p></li>
+<li><p><a class="reference external" href="#previewnodeproperty">3. PreviewNodeProperty</a></p></li>
+<li><p><a class="reference external" href="#others">4. Others</a></p>
+<ul>
+<li><p>sender_bind_address</p></li>
+<li><p>reciever_bind_address</p></li>
+<li><p>CalibrationFile</p></li>
+<li><p>sdk_config_path</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="corenodeproperty">
+<h2>1. CoreNodeProperty<a class="headerlink" href="#corenodeproperty" title="Permalink to this headline">¶</a></h2>
+<p>FPGA端可执行文件配置</p>
+<ul class="simple">
+<li><p>input_type ：输入类型，默认为1
+| input_type | expression | enum value |
+| ———- | ———- | ———- |
+| 0          | 从USB摄像头输入视频流  | USB_CAMERA_INPUT    |
+| 1          | 从相机模组中输入视频流 | CAMERA_STREAM_INPUT |
+| 2          | 从视频文件中输入视频流 | VIDEO_INPUT         |</p></li>
+<li><p>camera_property</p>
+<ul>
+<li><p>camera_device ：设备名称，默认“/dev/ttyUSB0”</p></li>
+<li><p>height ：输入图像height</p></li>
+<li><p>width ：输入图像width</p></li>
+</ul>
+</li>
+<li><p>gps_device ：保留项</p></li>
+<li><p>video_path：当input_type为2时有效，表示输入视频路径</p></li>
+<li><p>run_fcw ：FCW功能开关项，true/开，false/关</p></li>
+<li><p>run_lka ：LKA功能开关项，true/开，false/关</p></li>
+</ul>
+</div>
+<div class="section" id="alarmnodeproperty">
+<h2>2. AlarmNodeProperty<a class="headerlink" href="#alarmnodeproperty" title="Permalink to this headline">¶</a></h2>
+<p>语音模块可执行文件配置</p>
+<ul class="simple">
+<li><p>interests ：可执行程序通过网络接收关键字列表</p></li>
+</ul>
+</div>
+<div class="section" id="previewnodeproperty">
+<h2>3. PreviewNodeProperty<a class="headerlink" href="#previewnodeproperty" title="Permalink to this headline">¶</a></h2>
+<p>PC端可视化可执行文件配置</p>
+<ul class="simple">
+<li><p>interests ：可执行程序通过网络接收关键字列表</p></li>
+<li><p>is_write_result_video_enabled ：功能开关，是否保存detection结果视频，true/开，false/关</p></li>
+<li><p>is_write_original_video_enabled ：功能开关，是否保存原始视频，true/开，false/关</p></li>
+<li><p>video_path ：detection结果视频保存目录路径，linux下最好末尾加’/’</p></li>
+<li><p>original_video_path ：原始视频保存目录路径，linux下最好末尾加’/’</p></li>
+<li><p>images_path ：图片保存目录路径，linux下最好末尾加’/’</p></li>
+<li><p>fps ：保存视频时的帧率，默认20</p></li>
+<li><p>log_property</p>
+<ul>
+<li><p>is_output_to_txt_enabled ：功能开关，是否打印log输出，true/开，false/关</p></li>
+<li><p>default_output_path ：log保存目录路径，linux下最好末尾加’/’</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="others">
+<h2>4. Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>sender_bind_address ：指定发送端（ADAS产品）发送端口</p></li>
+<li><p>reciever_bind_address ：指定接收端（PC）接收某个IP地址发送的报文（这里为ADAS产品的IP地址）</p></li>
+<li><p>CalibrationFile ： <a class="reference internal" href="calibration_json.html"><span class="doc">calibration.json</span></a> 文件路径，用于转换世界坐标系和像素坐标系</p></li>
+<li><p>sdk_config_path ： <a class="reference internal" href="sdk_config_json.html"><span class="doc">sdk_configl.json</span></a> 文件路径，用于配置ADAS SDK</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sdk_config_json.html" class="btn btn-neutral float-right" title="sdk_config.json 配置说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="evaluation_config_json.html" class="btn btn-neutral float-left" title="evaluation config.json 配置说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, adas group
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
