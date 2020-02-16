@@ -21,6 +21,8 @@ import sphinx.environment
 from docutils.utils import get_source_line
 
 
+master_doc = 'index'
+
 source_parsers = {
     '.md': CommonMarkParser
 }
